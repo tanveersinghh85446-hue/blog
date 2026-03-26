@@ -8,13 +8,13 @@ const MOCK_POST = {
   id: 1,
   title: 'The Future of Web Development: What Comes After React?',
   subtitle: 'A deep dive into emerging frameworks, paradigms, and the shifting landscape of frontend engineering.',
-  author: { name: 'Aria Voss', avatar: 'https://i.pravatar.cc/80?img=47', role: 'Senior Frontend Engineer' },
+  author: { name: 'Aria Voss', avatar: '', role: 'Senior Frontend Engineer' },
   date: 'March 14, 2026',
   readTime: '8 min read',
   views: '12.4k',
   category: 'Technology',
   tags: ['React', 'Frontend', 'Web Dev', 'JavaScript', 'Frameworks'],
-  coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80',
+  coverImage: '',
   likes: 342,
   content: `
     <p>The frontend ecosystem has never stood still. From jQuery to Backbone, Angular to React — each era brought a new mental model, a new way of thinking about the relationship between data and the DOM. But as React approaches its second decade of dominance, a legitimate question emerges: <strong>what comes next?</strong></p>
@@ -40,15 +40,15 @@ const MOCK_POST = {
 }
 
 const RELATED = [
-  { id: 2, title: 'Understanding React Server Components', category: 'React', readTime: '6 min', image: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=400&q=70' },
-  { id: 3, title: 'CSS in 2026: The State of Styling', category: 'CSS', readTime: '5 min', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=70' },
-  { id: 4, title: 'Building Performant APIs with Hono', category: 'Backend', readTime: '7 min', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=70' },
+  { id: 2, title: 'Understanding React Server Components', category: 'React', readTime: '6 min', image: '' },
+  { id: 3, title: 'CSS in 2026: The State of Styling', category: 'CSS', readTime: '5 min', image: '' },
+  { id: 4, title: 'Building Performant APIs with Hono', category: 'Backend', readTime: '7 min', image: '' },
 ]
 // ──────────────────────────────────────────────────────────────────────────
 
 export default function SingleBlogPage() {
   const { id } = useParams()
-  const post = MOCK_POST // swap with real fetch using `id`
+  const post = MOCK_POST 
 
   const [liked, setLiked] = useState(false)
   const [likeCount, setLikeCount] = useState(post.likes)
@@ -178,7 +178,6 @@ export default function SingleBlogPage() {
           className="prose-blog"
           dangerouslySetInnerHTML={{ __html: post.content }}
           style={{
-            // Inline styles for blog prose since we can't guarantee Tailwind @typography
             lineHeight: '1.9',
             color: '#d1d5db',
             fontSize: '1.05rem',
